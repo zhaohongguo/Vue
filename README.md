@@ -1,5 +1,5 @@
 # Vue 总结
-
+	vue ..............
 vue-cli的安装<br/>
 		cnpm install --global vue-cli<br/>
 		vue <br/>
