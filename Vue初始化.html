@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+		<div id="app">
+			<!-- moustache小胡子语法  表达式 可以放赋值 取值 三元 -->
+			{{msg==='xxxx'?1:0}}
+		</div>
+</body>
+<script>
+	// 引入vue 后会给你一个Vue 的构造函数
+	let vm = new Vue({  //vm= viewModel
+		el:'#app',  //告诉Vue 能管理那个部分
+		data：{  //data中的数据会被vm代理
+			msg:'xxxx',  //可以通过vm,msg取到对应的内容
+			p:'<p>asdas</p>'
+		}
+	});
+		// 表单元素 input checkbox textarea  radio select
+		// vue指令都是V-开头
+		
+	v-text
+		v-text ==等价=={{}} 防止{{}}出现在页面上
+		<div v-text="msg"></div>
+
+	v-once
+		只绑定一次，当数据再次发生变化也不会导致页面刷新
+		<div v-once>
+			{{msg}} {{msg}}
+		</div>
+	v-html
+		把html字符当做html渲染,一定是可以信任的html
+		<div v-html="p"></div>
+	v-model
+		实现数据双向绑定 
+	
+	数据的响应变化
+	 在Vue中使用变量的时候，先要初始化，否则新加的属性不会导致页面刷新
+
+	  let vm = new Vue({
+	  	el:'#app',
+	  	data:{
+	1.	   a:{school:''}   //初始化
+	  	}
+	  });
+
+	2.  vm.$set();  
+	  	此方法可以给对象添加响应式的数据变化
+	3.  vm.$set(vm.a,   'school',  1);
+	  			给谁加  什么属性  值
+	  替换原对象
+	  	vm.a = {school:'asda',age:3,address:'asdasd'}
+
+--------------------------------------------------------
+	数组
+	<div id="app">
+		{{arr[1]}}
+	</div>
+
+
+	let vm = new Vue({
+		el:'#app',
+		data:{
+			arr:[1,2,3,4,5]
+		}
+	});
+	// 改变数组中的某一项
+		指令：dom元素的行间属性，vue提供了内置的指令，必须V-开头，后面的值均为变量
+		v-model(表单)将数据绑定到视图上，视图修改数据改变
+
+			复选框，只有一个复选框的时候，会把值转化为boolean类型。true代表选中
+			多个checkbox,要增加value属性并且数据类型是数组
+		
+</script>
+</html>
