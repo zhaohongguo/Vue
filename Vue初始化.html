@@ -73,6 +73,11 @@
 
 			复选框，只有一个复选框的时候，会把值转化为boolean类型。true代表选中
 			多个checkbox,要增加value属性并且数据类型是数组
-		
+		v-for 循环（数组，对象，字符串，数字）
+			<div v-for="value in/of 数组"></div>
+			<div v-for="(value,index) in/of 数组"></div>
+		 事件 v-on(@)
+			 绑定给dom元素，函数需要定义在methods中，不能喝data里的内容重名，this指向的是实例，不能使用箭头函数
+			 <div @事件命=“fn”></div>
 </script>
 </html>
