@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+// 基于promise的
+// axios
+	// 专门用来发送ajax的方法
+	created(){ 		//数据被初始化后会调用，this指向是vm实例  钩子函数
+		// Primise 解决回调问题
+		axios.get('./carts.json').then(res=>{ //success
+			this.products =res.data;
+		},err=>{ //error
+			console.log(err);
+		})
+
+	},
+	methods:{
+
+	}
+
+	JSON.stringify将数据转换成JSON格式
+</script>
+</html>
