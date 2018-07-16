@@ -10,3 +10,7 @@ vue-cli的安装<br/>
 		 npm run dev<br/>
 Vue中用到了SVG图，我们利用icomoon帮忙处理这些SVG图<br/>
 icomoon跳转处：https://icomoon.io/app/#/select
+Vue 的UI框架
+	iview
+	mint-ui(移动端)
+	Element-UI
