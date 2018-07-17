@@ -25,5 +25,21 @@
 	}
 
 	JSON.stringify将数据转换成JSON格式
+	
+	: 和v-bind 等价，指令动态绑定数据
+		在<>里面用：外面用{{}}
+
+		.number是让输入框的值变成数字类型 .lazy当输入框失去焦点更新数据
+
+		过滤器 原数据不变的情况，只是改变显示的效果  管道符
+
+		filters:{
+			//可以有好多自定义过滤器
+			toFixed(input,param1){ //这里的this指向的是window
+				return '¥'+input.toFixed(param1);
+				// input代表的是管道符前面的内容
+				// param1代表toFixed中传递的参数
+			}
+		}
 </script>
 </html>
