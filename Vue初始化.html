@@ -81,5 +81,18 @@
 			 <div @事件命=“fn”></div>
 		 显示隐藏
 			 v-show=“true/false”
+		v-show操作的是样式
+		v-if 操作的是dom v-if和v-else-if,v-else连写
+		<div v-if="flsa">111</div>
+		<div v-else="flsa">1213</div>
+
+		template标签，是Vue提供给的，没有任何意义，用来包裹元素的 (v-show不支持template  只要V-if使用)
+	
+	v-bind简写
+		动态绑定
+		class="a b c"  style="background:'color"
+			第一种对象，			第二种数组
+			className:isActive		在data里写class1:'x',class2:'y',然后在div行间{class1,class2}
+			:class绑定的样式和class绑定的不冲突	 
 </script>
 </html>
