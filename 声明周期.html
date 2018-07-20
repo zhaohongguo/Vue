@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="app"></div>
+	钩子函数生命周期
+	<script>
+		// 声明周期 beforeCtrate  created
+		//          beforeMount   mounted
+		//          beforeUpdate  updated
+		//          beforeDestroy  destroyed 
+		let vm = new Vue({ //根实例，初始化时会调用很多方法（钩子函数）
+		
+			beforeCreate(){},//1.此方法用不到
+			data:{a:1},
+			created(){	//2.获取ajax,初始化操作
+
+			},
+		
+			template:'<div>{{a}}</div>' ,//4.如果有template属性会用模板替换掉外部html,只要有此属性app中的内容就没有任何意义，只能有一个根元素，不能是文本节点
+			beforeMount(){}, //没有什么实际意义
+			mounted(){} //真实dom渲染完了，可以操作dom
+			beforeUpdate(){}, //一般用watch来替换掉
+			updated(){},
+			beforeDestroy(){ //可以清除定时器，清除事件绑定
+
+			},
+			destroyed(){
+
+			}
+		});
+		vm.$mount('#app');//3.保证有编译的元素
+		vm.$destroy();
+	</script>
+</body>
+</html>
