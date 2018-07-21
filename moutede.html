@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+moutede
+<div id="app">
+	<p ref="myp">{{msg}}</p>
+</div>
+<script>
+	// this.$data Vm上的数据
+	//  this.$watch 监控
+	//   this.$el 当前el元素
+	//   this.$set 后加的属性实现响应式变化
+	//   this.$options	vm上的所有属性
+	//   this.$nextTick(()=>{  })  //异步方法，等待渲染dom完成后来获取vm
+	//   this.$refs 如果数据变化后想获取真实dom中的内容，需要等待页面渲染玩毕后再去获取，所有dom操作，最好nextTick中
+	let vm = new Vue({
+		el:'#app',
+		data:{msg:'hello'},
+		//如果dom元素不是通过v-for循环出来的，只能获取到一个，通过v-for循环出来的可以获取多个
+		mounted(){ 
+			
+		}
+	})
+</script>
+</body>
+</html>
