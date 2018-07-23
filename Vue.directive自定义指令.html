@@ -5,9 +5,12 @@
 	<title>Document</title>
 </head>
 <body>
-	 directive 自定义指令
+	 directive 自定义指令的方法
 
-	 Vue.directive('自定义的名字')
+	 Vue.directive('自定义的名字'，function(绑定的元素(el),自定义的一个对象(binding),虚拟节点(vnode)){
+		//利用原生的方法去写
+		el.style="color"+binding.value;  将原生JS中的定义的黑色改变成绿色
+	});
 
 
 
