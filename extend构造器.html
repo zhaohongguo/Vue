@@ -1,32 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	
-		Vue.extend构造器的延伸 
-			 扩展实例构造器 经常和组件一起用
-				<h1>Vue</h1>
-				<hr>
-				<div id="author"></div>
-				<author></author>
-			 <script>
-			 	var authorExtend = Vue.extend({
-			 		template:"<p><a href='authorURL'>{{authorName}}</a></p>",
-			 		data:function(){
-			 			return{
-			 				authorName:'aaa',
-			 				authorURL:"http://baidu.com"
-			 			}
-			 		}
-			 	});
-
-			 	new authorURL().$mount("#author");
-			 </script>
-
-</body>
 </html><!DOCTYPE html>
 <html lang="en">
 <head>
