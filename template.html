@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+	<h1>Template三种写法</h1>
+	<hr>
+	<div id="app">
+		{{message}}
+	</div>
+
+	<!-- 第二种 -->
+	<template id="dd2">
+		<h2 style="color:red">选项模板1212</h2> 
+	</template>
+	<!-- 第三种 -->
+	<script  type="x-template" id="dd3" src="外部引用">
+		<h2 style="color:red">选项模板script</h2> 
+	</script>
+</body>
+	<script>
+		var app =new Vue({
+			el:'#app',
+			data:{
+				message:'hello world!'
+			},
+			// template:`
+			// 	<h2 style="color:red">选项模板</h2>  
+			// `
+			//第一个
+			
+			// 第二个  3
+			template:"#dd3"
+		})
+	</script>
+
+	总结：
+		1.直接在构造器里写相对于直观一点，但是如果代码过多建议不使用
+		2.第二种是在一个标签里写代码下面进行引用
+		3.第三种是在script中写，可以外部引用文件。之后还有一种是xxx.vue写法
+</html>
