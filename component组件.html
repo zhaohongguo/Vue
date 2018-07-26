@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+	<h1>component</h1>
+	<div id="app">
+		<jsa></jsa>
+		<pp></pp>
+	</div>
+
+	<script>
+		Vue.component('jsa',{
+			// 全局
+			template:`<div style="color:red">全局组件</div>`
+		})
+		var app = new Vue({
+			el:'#app',
+			// 局部
+			components:{
+				"pp":{
+					template:`<div style="color:green">局部组件</div>`
+				}
+			}
+		})
+	</script>
+	总结:组件就是制作自定义的标签,这些标签就是在HTM中没有的,在全局里的component是不加S的，在局部里component在构造器里是加S的
+
+	Component组件props属性设置
+
+	<div id="app">
+		<aa here="bb"></aa>
+		<!-- 如果出现-(bb-aa)问题，上面正常写，在下面插值的时候写bbAa 尽量不使用带 - 的-->
+
+		<!-- 在构造器里向组件传值，获取data中的值的时候,利用v-bind:xxx(简写 :here="XXXX")
+		<aa v-bind:here="message"></aa> -->
+	</div>
+
+	<script>
+		var app = new Vue({
+			el:'#app',
+			data:{
+				message:'ccc'
+			},
+			components:{
+				"aa":{
+					template:`<div style="color:green">props{{ here }}</div>`,
+					props:['here']   //数组
+				}
+			}
+		})
+	</script>
+	
+		Component中父子组件关系
+
+		<div id="app">
+			<oo></oo>
+		</div>
+		<script>
+
+			var city = {
+				template:`<div style="color:red">子组件1111</div>`
+			}
+
+			var oopp = {
+				template:`
+				<div>
+				<p>父组件</p>
+				<city></city>
+				</div>`,
+				components:{
+					"city":city
+				}
+			}
+			
+
+			var app = new Vue({
+				el:'#app',
+				components:{
+					"oo":oopp
+				}
+			})
+		</script>
+
+		Component标签
+
+		<component></component>标签是Vue框架自定义的标签，它的用途就是可以动态绑定我们的组件，根据数据的不同更换不同的组件。
+
+		<div id="app">
+			<component v-bind:is="who" ></component>
+		</div>
+		<script>
+			var app = new Vue({
+				var componentA={
+					template:`<div style+"color:red">
+					component组件
+					</div>`
+				},
+				var componentB={
+					template:`<div style+"color:green">
+					component组件BBBBBBBB
+					</div>`
+				},
+				var componentC={
+					template:`<div style+"color:pink">
+					component组件CCCCCCCCC
+					</div>`
+				}
+				el:'#app',
+				data:{
+					who:"componentA"
+				},
+				components:{
+					"componentA":componentA,
+					"componentB":componentB,
+					"componentC":componentC,
+				}
+			})
+		</script>
+</body>
+</html>
