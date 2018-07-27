@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		{{a}}
+		<p><button @click="add(2)">add</button></p>
+		<p><btn @click.native="add(4)"></btn></p>
+	</div>
+	
+	<button onclick="app.add(1)">外部</button>
+
+	<script>
+
+		var btn ={
+			template:`<button>组件</button>`
+		}
+
+		var app = new Vue({
+			el:'#app',
+			data:{
+				a:1
+			},
+			components:{
+				"btn":btn
+			},
+			methods:{
+				add:function(num){
+					if (num!='') {
+						this.a+=num;
+					}else{
+						this.a++
+					}
+					
+				}
+			}
+		})
+	</script>
+	总结：在meyhods方法给add添加num要写出add:function(num){},调用方法再button上直接写
+	.native修饰器，利用组件首先声明对象，在构造器里声明，利用.native修饰符调用add方法
+	作用域外调用构造器，构造器外面就不能使用@click。而是使用onclick,<button onclick="app.add(1)">外部</button>
+</body>
+</html>
