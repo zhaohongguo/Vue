@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mixins 混入</title>
+	<script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		{{num}}
+		<p><button @click="add">add</button></p>
+	</div>
+	<script>
+		var addConsole={
+			updated:function(){
+				console.log('数据发生变化，变成'+this.num)
+			}
+		};
+		Vue.mixin({
+			updated:function(){
+				console.log("我是全局")
+			}
+		});
+		var app=new Vue({
+			el:'#app',
+			data:{
+				num:1
+			},
+			methods:{
+				add:function(){
+					this.num++;
+				}
+			},
+			mixins:[addConsole]
+		})
+	</script>
+</body>
+
+总结:
+	Mixins一般有两种用途：
+
+		1、在你已经写好了构造器后，需要增加方法或者临时的活动时使用的方法，这时用混入会减少源代码的污染。
+
+		2、很多地方都会用到的公用方法，用混入的方法可以减少代码量，实现代码重用。
+		
+		mixins调用顺序都是混入先执行，然后构造器里在执行
+</html>
