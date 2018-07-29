@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		${num}
+		<p><button @click="add">add</button></p>
+	</div>
+		<script>
+		var extendsObj={
+			updated:function(){
+				console.log("我扩展");
+			},
+
+			methods:{
+				add:function(){
+					console.log('我扩展出来的');
+					this.num++;
+				}
+			}
+		}
+
+		var app=new Vue({
+			el:'#app',
+			data:{
+				num:1
+			},
+			methods:{
+				add:function(){
+					console.log('我原生');
+					this.num++;
+				}
+			},
+			extends:extendsObj,
+			delimiters:['${','}']
+		})
+	</script>
+	delimiters的作用是改变我们插值的符号,
+		扩展的内容只能写在构造器的内部，而不能写在外部，写在外部将不会生效。而扩展与混入的区别是，在调用方法的时候，混入放的是数组，而扩展放的是对象
+</body>
+</html>
