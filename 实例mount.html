@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		
+	</div>
+		<!-- 放在外部生效 -->
+		<p><button onclick="destroy()">卸载</button></p>
+		<p><button onclick="reload()">更新</button></p>
+		<p><button onclick="tick()">数据修改</button></p>
+	<script>
+		var vc = Vue.extend({
+			template:`<p>{{message}}</p>`,
+			data:function(){
+				return{
+					message:'I 212I 123I 43I 34I'
+				}
+			},
+			mounted:function(){
+				console.log("mounted 创建");
+			},
+			destroyed:function(){
+				console.log("destroy 卸载");
+			},
+			updated:function(){
+				console.log("updated 更新")
+			}
+		})
+		var vm = new vc().$mount("#app");
+
+		function destroy(){
+			vm.$destroy();
+		}
+
+		function reload(){
+			vm.$forceUpdate();
+		}
+
+		function tick(){
+			vm.message="数据修改";
+			vm.$nextTick(function(){
+				console.log("message更新完我调用");
+			})
+		}
+
+
+		//  在Vue中使用JQ 
+		var app=new Vue({
+				el:'#app',
+				data:{
+					message:'121'
+				},
+				//在Vue中使用jQuery
+				mounted:function(){
+					$("#app").html('sd12312');
+				}
+			})
+
+			app.add();
+	</script>
+
+
+	
+</body>
+</html>
