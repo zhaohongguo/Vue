@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<pk>
+			<span slot="pkUrl">{{pkdata.pkUrl}}</span>
+			<span slot="netName">{{pkdata.netName}}</span>
+			<span slot="skill">{{pkdata.skill}}</span>
+		</pk>
+	</div>
+
+	<template id="tep">
+	<!-- 要在外部家一个div将里面的小标签包住，要不就报错 -->
+		<div> 
+		<p>地址:<slot name="pkUrl"></slot></p>  <!-- 组建中使用slot，slot是成对出现的 -->
+		<p>名字:<slot name="netName"></slot></p>
+		<p>类型:<slot name="skill"></slot></p>
+		</div>
+	</template>
+	<script>
+		var pk={
+			template:"#tep"
+		}
+		var app=new Vue({
+			el:'#app',
+			data:{
+				pkdata:{
+					pkUrl:'http://baidu.com',
+					netName:'百度',
+					skill:'网页'
+				}
+			},
+			components:{
+				"pk":pk
+			}
+
+		})
+	</script>
+	总：在使用slot的时候
+</body>
+</html>
