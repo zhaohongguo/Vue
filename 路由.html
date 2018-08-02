@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+Vue路由
+
+	没有安装vue-router
+		npm install vue-router --save-dev
+
+index.js解读
+
+	import Vue from 'vue'   //引入Vue
+	import Router from 'vue-router'  //引入vue-router
+	import Hello from '@/components/Hello'  //引入根目录下的Hello.vue组件
+	 
+	Vue.use(Router)  //Vue全局使用Router
+	 
+	export default new Router({
+	  routes: [              //配置路由，这里是个数组
+	    {                    //每一个链接都是一个对象
+	      path: '/',         //链接路径
+	      name: 'Hello',     //路由名称，
+	      component: Hello   //对应的组件模板
+	    }
+	  ]
+	})
+	再增加一个页面,是在src/components目录下新建，文件内容的编写包括<template></template> <script></script> <style></style>然后在index.js中引入新建的组件，增加路由的配置
+
+	router-link制作导航
+	<router-link to="">显示文字</router-link>
+		to：是我们的导航路径，要填写的是你在router/index.js文件里配置的path值，如果要导航到默认首页，只需要写成  to=”/”  ，
+		[显示字段] ：就是我们要显示给用户的导航名称，比如首页  新闻页。
+
+Vue设置子路由
+
+		1.你要先去改变一下App.vue的导航代码，利用router-link增加子路由页面
+		2.(你想给HH.vue增加子页面)再改写components/HH.vue在template下面增加router-view标签其他不变
+		3.在components下新建两个子组件HH1.vue和HH2.vue改变一下data中msg的值加以区分，并且子组件上没有router-view
+		4.修改router/index.js代码,子路由是在原有路由的配置下加入children字段,同时,在配置路由之前需要用import引入两个子路由
+
+			{
+		    	path:'/HH',
+		    	name:'HH',
+		    	component:HH,
+		      children:[
+		        {path:'/',component:HH},     这里的/指的是上面的HH，而不是总的那个一个
+		        {path:'HH1',component:HH1},
+		        {path:'HH2',component:HH2}
+		      ]
+		    }
+	</body>
+</html>
