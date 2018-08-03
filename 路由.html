@@ -52,5 +52,49 @@ Vue设置子路由
 		        {path:'HH2',component:HH2}
 		      ]
 		    }
+vue-router传递参数
+		1.name传参
+			在路由index.js下配置name属性,在模板(src/App.vue)用$router.name接收
+		2.通过routerlink标签中的to传参
+			在利用router-link中to传参的时候这里的to要进行一个绑定写成：to
+			<router-link :to="{name:xxx,params:{key:value}}">valueString</router-link>
+			name：是我们路由配置文件中起的name值
+			params：就是我们要传的参数，他也是对象，在对象里可以传递多个值
+			改造src/App.vue里router-link把HH1页面进行修改<router-link :to="{name:'hh1',params:{username:'aadasd'}}">Hh页面1</router-link>,再把index.js文件hh1配置路由起name叫hh1在模板(src/components/hh1.vue)用$route.params.username({{$route.params.username}})
+单页面多路由区域操作
+		在App.vue下，写2个以上的router-view,分别给他们不同的名字。在去conponent下新建相关的页面，然后到index.js页面上配置路由，首先引入import，在components(记得加s，多路由就要加s)
+			components:{
+				default:Hello,
+				left:hh1,	//这里的left和right都是你在router-view上定义的name。想对应
+				right:hh2
+			}
+vue-router利用url传递参数
+		1.先在index.js中配置路由
+			{
+				path:'/params/:newsId/:newsTitle',  配置文件里以:(冒号)形式传递参数，也是对参数的绑定
+				component:Params
+			}
+		2.在components目录上建立相关文件（params.vue）在template的时候要利用div去包裹要不容易报错
+			<template>
+			    <div>
+			        <h2>{{ msg }}</h2>
+			        <p>newsId：{{ $route.params.newsId}}</p>
+			        <p>newsTitle{{ $route.params.newsTitle}}</p>
+			    </div>
+			</template>
+			 
+			<script>
+			export default {
+			  name: 'params',
+			  data () {
+			    return {
+			      msg: 'params page'
+			    }
+			  }
+			}
+			</script>
+		3.在App.vue文件里加入router-view标签。利用url传值
+			<router-link to="/params/198/adasd website is very good">params</router-link> 
+		注：正则表达式在URL传值的应用，是在第一步上的:newsId(正则表达式)
 	</body>
-</html>
+</html> 
