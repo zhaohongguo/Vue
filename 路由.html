@@ -96,5 +96,45 @@ vue-router利用url传递参数
 		3.在App.vue文件里加入router-view标签。利用url传值
 			<router-link to="/params/198/adasd website is very good">params</router-link> 
 		注：正则表达式在URL传值的应用，是在第一步上的:newsId(正则表达式)
+vue-router的重定向redirect
+		在路由index.js文件里更改
+			{
+				path:'/gogo',  //这里是你定义的名称显示在页面上
+				redirect:'/'  //将原来的component换成了redirect,并且上面的 / 是跳转的
+			}
+		利用重定向去传递参数
+			在上面定义的重定向的下面
+			{
+			  path:'/goParams/:newsId(\\d+)/:newsTitle',
+			  redirect:'/params/:newsId(\\d+)/:newsTitle'
+			}
+			这里的redirect后面的参数里复制的重定向路径path参数（不是重定向上面的path）
+alias别名
+		首先在路由配置文件index.js上设置
+			{
+				path:'/hh1',
+				component:hh1,
+				alias:'/zz'
+			}
+		再去配置router-link，利用to属性进行重新定向
+		<router-link to="/zz">zz</router-link>
+		redirect和alias的区别
+			redirect：仔细观察URL，redirect是直接改变了url的值，把url变成了真实的path路径。
+			alias：URL路径没有别改变，这种情况更友好，让用户知道自己访问的路径，只是改变了<router-view>中的内容。
+路由的过渡动画
+		让路由有动画需要在router-view标签外部添加transition 需要一个那么属性
+		<transition name="fade">
+		  <router-view ></router-view>
+		</transition>
+		CSS过渡类名：
+			fade-enter:进入过渡的开始状态，元素被插入时生效，只应用一帧后立刻删除。
+			fade-enter-active:进入过渡的结束状态，元素被插入时就生效，在过渡过程完成后移除。
+			fade-leave:离开过渡的开始状态，元素被删除时触发，只应用一帧后立刻删除。
+			fade-leave-active:离开过渡的结束状态，元素被删除时生效，离开过渡完成后被删除。
+		然后在app.vue下面写样式
+		过渡模式mode：
+			in-out:新元素先进入过渡，完成之后当前元素过渡离开。
+			out-in:当前元素先进行过渡离开，离开完成后新元素过渡进入。
+		（mode="in-out" 是写在transition 的name后面）
 	</body>
 </html> 
