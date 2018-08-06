@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+satate访问状态对象
+		1.通过computed的计算属性直接赋值，在你的components模板上更改，对data值去改变，把你store.js中的satate值赋值给模板上的data
+			computed:{
+				count(){
+					return this.$store.state.count;
+				}
+			}
+		2.通过mapState对象赋值
+			你要在components模板下面的count.vue里面引入mapState
+			import { mapState } from 'vuex';
+			然后在computed计算属性里利用ES6语法箭头函数
+			computed:mapState({
+				count:state=>state.count
+					//ES5
+				count.function(state){
+					return state.count;
+				}
+			})
+		3.通过mapState的数组来赋值
+			computed:mapState(['count'])
+			项目中最常用
+</body>
+</html>
