@@ -27,5 +27,23 @@ satate访问状态对象
 		3.通过mapState的数组来赋值
 			computed:mapState(['count'])
 			项目中最常用
+			
+Mutations修改状态
+		传递参数
+			首先要进入store.js里面在const改变
+				add(state,n){
+					state.count+=n;
+				},
+				reduce(state,m){
+					state.count-=m;
+				}
+			然后再去count.vue里，点击事件上，添加点击一下增加多少
+			<button @click="$store.commit('add（方法名）',10)">+</button>
+		简化引用
+			1.在count.vue里面引用mutations
+		import { mapState,mapMutations } from 'vuex';
+			2.methods:mapMutations(['add','reduce'])
+		这样你在上面的button上就可以改变
+			<button @click="reduce">-</button>
 </body>
 </html>
