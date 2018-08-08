@@ -45,5 +45,27 @@ Mutations修改状态
 			2.methods:mapMutations(['add','reduce'])
 		这样你在上面的button上就可以改变
 			<button @click="reduce">-</button>
+Getters计算过滤操作
+		依旧是需要在store.js里面声明geyyers属性
+			const getters={
+				count:function(state){
+					return state.count+=100;
+				}
+			}
+		写好还得在Vuex.store()里引入之前引入过state和mutations所以只需要在后面引入第三个属性就行
+			export default new Vuex.Store({
+				state,mutations,getters
+			})
+		再去模板中Count.vue
+			computed:{
+				...mapState(['count']),   //利用了ES6的超引用
+				count(){
+				this.$store.getters.count;
+				}
+			}
+		简写：
+			在模板中import引入mapGetters
+			然后在computed属性中加入manpGetters
+			...mapGetters(["count"])
 </body>
 </html>
