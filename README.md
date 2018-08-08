@@ -45,5 +45,6 @@ Vue 的UI框架
 	|-- package.json                     // 项目基本信息
 
 Vue中引入elementUI库,官方文档介绍引入element的文档的时候，在main.js中<br/>
-	 import 'element-ui/lib/theme-default/index.css'(这个好像是elementUI 1.0的版本写法)，但是你现在去引入这个回出现报错，你很迷茫，所以你要仔细去观察更改，现在引入这个写法如下：<br/>
+	 import 'element-ui/lib/theme-default/index.css'(这个是elementUI 1.0的版本写法)<br/>
+	 elementUI 2.0的写法:<br/>
 	 import 'element-ui/lib/theme-chalk/index.css'
