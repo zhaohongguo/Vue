@@ -67,5 +67,22 @@ Getters计算过滤操作
 			在模板中import引入mapGetters
 			然后在computed属性中加入manpGetters
 			...mapGetters(["count"])
+	
+actions异步修改状态
+		actions和mutations的功能基本一样，而action异步 mutations同步
+
+		首先还是在store.js里声明
+			const actions={
+				addAction(countext){
+					context.commit('add',10)
+				},
+				reduceAction({commit}){
+					commit('reduce');
+				}
+			}
+			然后引入actions
+		再去count.vue里利用import引入mapActions
+		然后在改造methods方法
+			...mapAction(['addAction','redyceAction'])
 </body>
 </html>
