@@ -48,3 +48,4 @@ Vue中引入elementUI库,官方文档介绍引入element的文档的时候，在
 	 import 'element-ui/lib/theme-default/index.css'(这个是elementUI 1.0的版本写法)<br/>
 	 elementUI 2.0的写法:<br/>
 	 import 'element-ui/lib/theme-chalk/index.css'
+Vue在后期的编写中，一定要注意逗号（，），如果methods中写完一定记得加逗号（，），Vue对this和箭头函数用的比较多，axios是用来调用数据的，vuex是一种zhuang
