@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	先建立一个项目的工程目录，并在目录下边建立两个文件夹：src和dist
+
+	src：书写ES6代码的文件夹，写的js程序都放在这里。
+	dist：利用Babel编译成的ES5代码的文件夹，在HTML页面需要引入的时这里的js文件。
+	文件夹建立好，建立一个index.html文件并在src下写一个index.js,（在index.js中写ES6语法）然后在index.html中引入（注意。引入的不是src下的index.js,而是你之前建立的dist文件 如下面）
+	<script src="./dist/index.js"></script>
+	安装Babel之前，需要用npm init 先初始化
+		npm init -y(一切都是默认)
+	全局安装Babel-cli
+		npm install -g babel-cli
+	本地安装转换包
+		npm install --save-dev babel-preset-es2015 babel-cli  (安装完成后package.json的文件中多一个devDependencies选项)
+	新建一个.babelrc
+		这个文件是建立在根目录下.babelrc 并输入下面代码
+			{
+				"presets":[
+					"es2015"
+				],
+				"pulgins":[]
+			}
+	输入命令即可转换
+		babel src/index.js -o dist/index.js
+
+</body>
+</html>
