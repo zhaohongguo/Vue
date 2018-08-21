@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	v-for的使用
+		1.在script上有数组，在template上利用ul li，在li上用v-for去循环
+		2.数组中包含对象，
+			list1:[
+				{'title':'1111'},
+				{'title':'asasd'},
+				{'title':'asdasd'}
+			]
+		这种也是ul li 但是在li(v-for="item in list1")上循环的时候，写数据则写成{{item.title}}
+
+		3.循环嵌套的使用
+			list2:[
+        {
+          "cate":"休息徐",
+          "list":[
+            {'title':'11122'},
+            {'title':'1asdadasd'},
+          ]
+        },
+        {
+          "cate":"归家",
+          "list":[
+            {'title':'1112滴滴滴滴滴滴2'},
+            {'title':'1asd按时大大dasd'},
+          ]
+        }
+      ]
+      这种如何将数据显示在页面上这种也叫循环嵌套，这种也是用到ul 下的li 然后V-for循环（item in list2）写入数据，（利用上面的2的写法）{{item.cate}},先将对象写出，再利用ol下的li再v-for循环（li v-for="news in item.list"）{{news.title}}，还是依照循环谁就写谁的原则写
+
+      <!-- 绑定v-bind -->简写 直接一个:（冒号）
+      如果在script中是从后台中获取的数据url，而你在template上去显示则要写成
+        <img v-bind:src="url">
+
+      script上有html怎么绑定？
+        用新的v-html
+      绑定数据v-text
+
+      双向数据绑定必须在表单里面使用v-model
+      methods 放方法的地方
+
+</body>
+</html>
