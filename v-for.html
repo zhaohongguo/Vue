@@ -44,6 +44,32 @@
 
       双向数据绑定必须在表单里面使用v-model
       methods 放方法的地方
-
+	6----------------------------------
+	<!-- 绑定事件执行方法 -->
+        v-on:click
+        @click
+        在methods上，你可以用run1:function(){},
+        也可以直接是run2(){}
+      <!-- 执行方法获取数据 -->
+      获取方法你要在methods,要用this  this.名字
+      小程序获取  this.data.msg
+      react       this.state.msg
+      <!-- 如果改变data里msg -->
+      this.msg="改变数据"
+      <!-- 请求数据 -->
+      首先要在data里定义一个空数组(list[])，然后在template上利用<ul> 下的<li v-for="item in list"> {{item}}  然后在script上用for循环去this.list.push数据
+      <!-- 方法传值 -->
+      在你之前定义的方法名字（deleta）,在script上写
+      deleta(val){  这个val 可以随便写
+      }
+      <!-- 事件对象 -->
+        在template上
+        <button @click="eventFn($event)">事件对象</button>
+        script上
+          eventFn(e){
+          可以获取dom对象
+        e.srcElement.style.background='red'  点击button上的变红
+        获取当前自定义属性传值
+          }
 </body>
 </html>
