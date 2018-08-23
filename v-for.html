@@ -71,5 +71,24 @@
         e.srcElement.style.background='red'  点击button上的变红
         获取当前自定义属性传值
           }
+	
+	 7---------- 
+        Vue中实现一个todolist
+          首先你要在template上利用数据绑定v-model将数据绑定，然后写出模型（增加方法）
+          input type="text" v-model="todo"/>
+          <button @click="doAdd()">+++</button>
+          在script上你要设置todo为空todo:'',和一个list为空的数组list:[],<ul>下的<li> 用v-for 去循环item in list {{item}},既然要增加就得先去获取你在输入框输入的值，然后利用push到list上就用到了this.list.push(this.todo);
+          删除的时候就是在你之前的v-for下的写入一个button删除按钮同时，v-for上的item in list 也变成了（item key） in list
+          在script上也将利用了数组上的splice删除
+          this.list.splice(key,1);
+        10-----------组件
+        引用组件你就需要引入
+          import xxxx from './components.xxxxxx.vue'
+        引入完成后就需要挂载就是在script上写一个
+        components:{
+            'v-xxxx':xxxxxx
+        }
+        然后在template上使用
+        <v-xxxx></v-xxxx>
 </body>
 </html>
