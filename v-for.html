@@ -90,5 +90,21 @@
         }
         然后在template上使用
         <v-xxxx></v-xxxx>
+	 11------------------------生命周期函数（生命周期钩子）
+        组件挂载、以及组件更新、组件销毁的时候出发的一系列的方法就叫生命周期函数
+        必须记住的是mounted  我们请求数据、操作DOM都是放在这里 
+        mounted(){
+        console.log('模板编译完成');
+        }
+
+
+        beforeCreate(实例刚刚被创建)
+        Create(实例创建完成)
+        beforeMount(模板编译前)
+        mounted(编译完成)
+        beforeUpdated(数据更新前)
+        updated(数据更新完毕)
+        beforeDestroy(实例销毁前)
+        destroyed(实例销毁完成)
 </body>
 </html>
