@@ -106,5 +106,68 @@
         updated(数据更新完毕)
         beforeDestroy(实例销毁前)
         destroyed(实例销毁完成)
+	
+	12---------------请求数据
+
+          vue-resource    官方提供的Vue插件
+            安装   $ npm install vue-resource --save
+  (写--save是将你安装的版本写到package.json上面)
+          axios
+          detch-jsonp
+          
+          使用vue-resource请求数据步骤
+            1.安装vue-resource模块
+            2.在main.js上引入vue-resource
+            3.调用Vue.use(VueResource);也是在main.js上
+            4.在组件中直接使用
+              this.$http.get(地址).then(function(response){
+
+              },function(err){
+
+              })
+              官方箭头函数写法：
+                {
+                  // GET /someUrl
+                  this.$http.get('/someUrl').then(response => {
+
+                    // get body data
+                    this.someData = response.body;
+
+                  }, response => {
+                    // error callback
+                  });
+                }
+            
+            axios数据请求
+
+            使用：
+            1.安装
+            cnpm install axios --save
+            2.哪里用哪里引入（你在哪个模板中使用就在哪个模板上引入）
+
+            建议使用箭头函数以防止this的指向错误
+              {
+               var api='请求地址'
+               Axios.get(api).then(function(response){
+               console.log(response);
+               }) 
+               .catch(function(error){
+               console.log(error);
+               })
+
+              }
+              箭头函数
+               {
+               var api='请求地址'
+               Axios.get(api).then((response)=>{
+               console.log(response);
+               this.list=respose.data.result
+               }) 
+               .catch((error)=>{
+               console.log(error);
+               })
+
+              }
+              获取数据，在data里定义一个list为空，然后在箭头函数里写this，在去template上利用<ul> <li v-for>循环数据
 </body>
 </html>
