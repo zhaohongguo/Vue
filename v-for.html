@@ -169,5 +169,28 @@
 
               }
               获取数据，在data里定义一个list为空，然后在箭头函数里写this，在去template上利用<ul> <li v-for>循环数据
+	14--------父子传值
+            父给子传值(不光能传值，还可以传方法)
+              1.父组件调用子组件的时候绑定动态属性
+              <v-header :title="title"></v-header>
+              2.在子组件里通过props接受父组件传过来的数据
+              props:['title']
+
+              验证：
+              props:{
+                'title':String
+              }
+              3直接在子组件里使用
+            父组件获取子组件主动的数据方法
+               1.调用子组件的时候定义一个ref
+               <v-header red="header"></v-header>
+               2.在父组件里面通过
+                this.$refs.header.属性
+                this.$refs.header.方法
+
+            子组件主动获取父组件的数据方法
+                this.$parent.数据
+                this.$parent.方法
+
 </body>
 </html>
