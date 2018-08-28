@@ -199,7 +199,34 @@
           4.接收数据的地方通过VueEmit.$on('名称',function(){
           
           })
-             
+	
+           17---------------------路由
+
+          1.安装
+             cnpm install vue-router --save
+          2.引入vue.use(VueRouter)    main.js
+                  import VueRouter from 'vue-router'
+                  Vue.use(VueRouter)
+          3.配置路由
+            1.创建组件，引入组件
+            2.定义路由（复制）
+                const routes = [
+                  { path: '/home', component: Home },
+                  { path: '/about', component: About },
+                   {path:'*',redirect:'/home'}   //默认跳转路由
+                ]
+            3.实例化Vue-router
+              const router = new VueRouter({
+                    routes // routes: routes 的简写
+              })
+            4.挂载
+              new Vue({
+                el:'#app',
+                router,
+                render:h => h(App)
+              })
+              5.根组件模板上<router-view></router-view>放在APP.vue上
+  
 
 </body>
 </html>
