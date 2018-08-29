@@ -226,7 +226,22 @@
                 render:h => h(App)
               })
               5.根组件模板上<router-view></router-view>放在APP.vue上
-  
+	
+	
+  	  18------------------路由传值、get传值
+            动态路由
+              1.配置动态路由
+                routes:[
+                  //动态路径参数，以冒号开头
+                  {path:'/user/:id', component:User}
+                ]
+              2.在对应页面
+                this.$route.paeams获取动态路由的值
+            Get传值
+              1.获取值
+              :to="'/pcontent?id='+key"
+              2.对应页面
+              this.$route.query获取动态路由的值
 
 </body>
 </html>
