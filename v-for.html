@@ -242,6 +242,19 @@
               :to="'/pcontent?id='+key"
               2.对应页面
               this.$route.query获取动态路由的值
+	
+	 20----------------路由编程式导航hash模式
+
+              路由编程式导航 （$router 官方写错了
+              ）
+              methods(){
+                this.$router.push({path:'跳转的页面'})
+              }
+              hash模式尽量选用默认的，如果改变需要配合后端的去改变一些东西
+
+              21----------路由嵌套
+              1.配置路由
+              2.父路由里配置子路由显示的地方 <router-view></router-view>
 
 </body>
 </html>
