@@ -1,0 +1,48 @@
+vue npm run dev报错
+	ERROR in ./node_modules/_css-loader@0.28.11@css-loader!./node_modules/_vue-loader@13.7.1@vue-loader/lib/style-compiler?{"vue":true,"id":"data-v-04c2046b","scoped":false,"hasInlineConfig":false}!./node_modules/_sass-loader@6.0.7@sass-loader/lib/loader.js!./node_modules/_vue-loader@13.7.1@vue-loader/lib/selector.js?type=styles&index=0!./src/App.vue
+
+Module build failed: Error: ENOENT: no such file or directory, scandir 'E:\学习\Vue学习\vue实战\Demo1\node_modules\_node-sass@4.8.3@node-sass\vendor'
+
+    at Object.fs.readdirSync (fs.js:904:18)
+
+    at Object.getInstalledBinaries (E:\学习\Vue学习\vue实战\Demo1\node_modules\_node-sass@4.8.3@node-sass\lib\extensions.js:129:13)
+
+    at foundBinariesList (E:\学习\Vue学习\vue实战\Demo1\node_modules\_node-sass@4.8.3@node-sass\lib\errors.js:20:15)
+
+    at foundBinaries (E:\学习\Vue学习\vue实战\Demo1\node_modules\_node-sass@4.8.3@node-sass\lib\errors.js:15:5)
+
+    at Object.module.exports.missingBinary (E:\学习\Vue学习\vue实战\Demo1\node_modules\_node-sass@4.8.3@node-sass\lib\errors.js:45:5)
+
+    at module.exports (E:\学习\Vue学习\vue实战\Demo1\node_modules\_node-sass@4.8.3@node-sass\lib\binding.js:15:30)
+
+    at Object.<anonymous> (E:\学习\Vue学习\vue实战\Demo1\node_modules\_node-sass@4.8.3@node-sass\lib\index.js:14:35)
+
+    at Module._compile (module.js:635:30)
+
+    at Object.Module._extensions..js (module.js:646:10)
+
+    at Module.load (module.js:554:32)
+
+    at tryModuleLoad (module.js:497:12)
+
+    at Function.Module._load (module.js:489:3)
+
+    at Module.require (module.js:579:17)
+
+    at require (internal/module.js:11:18)
+
+    at Object.<anonymous> (E:\学习\Vue学习\vue实战\Demo1\node_modules\_sass-loader@6.0.7@sass-loader\lib\loader.js:3:14)    at Module._compile (module.js:635:30)
+
+ @ ./node_modules/_vue-style-loader@4.1.0@vue-style-loader!./node_modules/_css-loader@0.28.11@css-loader!./node_modules/_vue-loader@13.7.1@vue-loader/lib/style-compiler?{"vue":true,"id":"data-v-04c2046b","scoped":false,"hasInlineConfig":false}!./node_modules/_sass-loader@6.0.7@sass-loader/lib/loader.js!./node_modules/_vue-loader@13.7.1@vue-loader/lib/selector.js?type=styles&index=0!./src/App.vue 4:14-394 14:3-18:5 15:22-402
+
+ @ ./src/App.vue
+
+ @ ./src/main.js
+
+ @ multi ./node_modules/_webpack-dev-server@2.11.2@webpack-dev-server/client?http://localhost:8080 webpack/hot/dev-server ./src/main.js
+
+在学习vue的时候，用cli构建了一个 webpack简单模式的项目，运行npm run dev的时候报了一堆错，很头疼，搜了很久，找到一个可用的解决方案，先记录在这里，方法如下：
+
+在项目目录下运行npm rebuild node-sass即可。
+
+2.运行Vue的时候出现ERR 404这时候很有可能是你在进行包依赖的时候有的包下载错误导致，使用cnpm去重新下载包依赖。
