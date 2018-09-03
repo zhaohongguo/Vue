@@ -46,3 +46,12 @@ Module build failed: Error: ENOENT: no such file or directory, scandir 'E:\学�
 在项目目录下运行npm rebuild node-sass即可。
 
 2.运行Vue的时候出现ERR 404这时候很有可能是你在进行包依赖的时候有的包下载错误导致，使用cnpm去重新下载包依赖。
+	  
+3.Vue引入ElementUI出错解析不了ttf字体文件
+     webpack.config配置
+     {
+        test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+        loader: 'file-loader'
+      },
+      你需要去package.json去查看你有没有file-loader,如果没有你需要
+      cnpm install file-loader --save-dev
