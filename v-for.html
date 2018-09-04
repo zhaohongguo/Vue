@@ -255,6 +255,21 @@
               21----------路由嵌套
               1.配置路由
               2.父路由里配置子路由显示的地方 <router-view></router-view>
+	
+	      27------------Vuex 程序开发状态管理模式
+              解决不同组件的数据共享 数据持久化
+              主要用在大项目中
+              
+              使用
+                1.新建一个Vuex文件夹
+                2.Vuex文件夹里面新建一个store.js
+                3.安装vuex
+                  cnpm install vuex --save
+                4.在刚才创建的store.js引入vue  引入Vuex并且 use.vuex
+                      import Vue form 'vue'
+                      import Vuex from 'vuex'
+
+                      Vue.use(Vuex);
 
 </body>
 </html>
