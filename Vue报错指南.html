@@ -55,3 +55,18 @@ Module build failed: Error: ENOENT: no such file or directory, scandir 'E:\学�
       },
       你需要去package.json去查看你有没有file-loader,如果没有你需要
       cnpm install file-loader --save-dev
+	   
+4.(Emitted value instead of an instance of Error) the "scope" attribute for scoped slots have been deprecated and replaced by "slot-scope" since 2.5. The n
+ot-scope" attribute can also be used on plain elements in addition to <template> to denote scoped slots.`
+
+
+
+
+检查下你的列表组件里，slot 里的 <template> 上面有个 scope 属性，你改成 slot-scope
+
+<template scope="xxx">yyyyyyyy</template>
+改成
+
+<template slot-scope="xxx">yyyyyyyy</template>
+scope 属性在2.5以后的版本中已经废弃， 被 slot-scope 替代
+slot-scope 不光可以用在 template 元素上，也可以用在其它元素
