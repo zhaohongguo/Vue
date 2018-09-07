@@ -270,6 +270,24 @@
                       import Vuex from 'vuex'
 
                       Vue.use(Vuex);
+		 5.定义数据
+                  // 在Vuex中主要用于存储数据
+                        var state={
+                          count:1
+                        }
+                  6.定义方法
+                    // 里面放方法，主要用于改变state里的数据
+                      var mutations={
+                        incCount(){
+                          ++state.count;
+                        }
+                      }
+                  暴露
+                      const store = new Vuex.Store({
+                        state,
+                        mutations
+                      })
+                      export default store;
 
 </body>
 </html>
