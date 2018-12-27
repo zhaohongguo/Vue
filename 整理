@@ -36,7 +36,7 @@ Tab选项卡
         
         第v-for
         tab(index){
-        this.num=index
+        this.indexs=index;
 			}
       
       
