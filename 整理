@@ -62,3 +62,61 @@ Tab选项卡
 		background-color: green;
 	}
 </style>
+
+第三种种情况（当选项卡上面和下面都不选用遍历循环的时候）
+	<template>
+	<div class="hello">
+		<div class="btn-group">
+			<!-- <button v-for="(item,index) in btn" v-bind:class="{active:(indexs==index)}" v-on:click="tab(index)" :key="index">{{item}}</button> -->
+			<button class="{Tabactive=0}" v-bind:class="{active:(Tabactive==0)}" @click="Tabactive=0">12312</button>
+			<button class="{Tabactive=1}" v-bind:class="{active:(Tabactive==1)}" @click="Tabactive=1">12321</button>
+			<button class="{Tabactive=2}" v-bind:class="{active:(Tabactive==2)}" @click="Tabactive=2">234234</button>
+		</div>
+		<div class="wrap">
+			<!-- 第一种 -->
+			<!-- <div v-for="(w,key,index) in box" v-if="indexs==index" :key="index">{{w}}</div> -->
+			<!-- 第二种 -->
+			<div class="wrap1" v-if="Tabactive==0">000</div>
+			<div class="wrap1" v-if="Tabactive==1">111</div>
+			<div class="wrap1" v-if="Tabactive==2">222</div>
+		</div>
+	</div>
+</template>
+<script>
+	export default {
+		data() {
+		 	return {
+				// btn:['按钮1','按钮2','按钮3'],
+				// box:{aa: "tab切换1",bb:"tab切换2",cc:"tab切换3"},
+				// indexs:0,
+				// isTab:0,
+				Tabactive:0,
+			}
+		},
+		methods: {
+			tab(index) {
+				this.active = index,
+				this.isTab = index
+			}
+		}
+	}
+</script>
+<style scope>
+	.btn-group{
+		width: 100%;
+		margin:0 auto;
+	}
+	button{
+		border:none;
+		width: 50px;
+		height: 30px;
+	}
+	.wrap div{
+		width: 100%;
+		height: 300px;
+		background:blue;
+	}
+	.active{
+		background-color: green;
+	}
+</style>
