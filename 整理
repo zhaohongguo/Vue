@@ -1,0 +1,64 @@
+父传子：props
+子传父：$emit
+
+Tab选项卡
+  在选项卡里面写东西
+    <template>
+	<div class="hello">
+		<div class="btn-group">
+			<button v-for="(item,index) in btn" v-bind:class="{active:(indexs==index)}" v-on:click="tab(index)" :key="index">{{item}}</button>
+		</div>
+		<div class="wrap">
+			  第一个情况for循环
+        <div v-for="(w,key,index) in box" v-if="indexs==index" :key="index">{{w}}</div>
+        第二情况
+			<div class="wrap1" v-if="isTab==0">000</div>
+			<div class="wrap1" v-if="isTab==1">111</div>
+			<div class="wrap1" v-if="isTab==2">222</div>
+			<div class="wrap1" v-if="isTab==3">333</div>
+		</div>
+	</div>
+</template>
+<script>
+	export default {
+		data() {
+			return {
+				btn:['按钮1','按钮2','按钮3'],
+				box:{aa: "tab切换1",bb:"tab切换2",cc:"tab切换3"},
+				indexs:0,
+				isTab:0
+			}
+		},
+		methods: {
+			tab(index) {
+				this.active = index,
+				this.isTab = index
+        
+        第v-for
+        tab(index){
+        this.num=index
+			}
+      
+      
+		}
+	}
+</script>
+<style scope>
+	.btn-group{
+		width: 100%;
+		margin:0 auto;
+	}
+	button{
+		border:none;
+		width: 50px;
+		height: 30px;
+	}
+	.wrap div{
+		width: 100%;
+		height: 300px;
+		background:red;
+	}
+	.active{
+		background-color: green;
+	}
+</style>
